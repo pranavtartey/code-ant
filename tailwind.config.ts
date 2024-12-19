@@ -8,9 +8,21 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        inter: ['var(--font-inter)'],
+      },
+      screens: {
+        sm: "375px",
+        md: "768px",
+        lg: "1200px"
+      },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "0.5 rem",
+          md: "2rem",
+          lg: "4rem"
+        }
       },
     },
   },
