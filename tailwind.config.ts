@@ -5,6 +5,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/sections/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -20,7 +21,8 @@ const config: Config = {
       container: {
         center: true,
         padding: {
-          DEFAULT: "0.5 rem",
+          DEFAULT: "0rem",
+          sm : "0rem",
           md: "0rem",
           lg: "0rem"
         }
