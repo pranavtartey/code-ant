@@ -15,15 +15,15 @@ const config: Config = {
       screens: {
         sm: "375px",
         md: "768px",
-        lg: "1440px",
+        lg: "1280px",
         xl: "1600px"
       },
       container: {
         center: true,
         padding: {
           DEFAULT: "0rem",
-          sm : "0rem",
-          md: "0rem",
+          sm: "0rem",
+          md: "0.5rem",
           lg: "0rem"
         }
       },

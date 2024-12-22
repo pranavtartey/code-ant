@@ -42,7 +42,7 @@ const LoginScreen: FC = () => {
                 <Logo />
                 <h2 className="text-3xl font-normal">CodeAnt AI</h2>
               </div>
-              <p className="text-[#181D27] text-2xl font-semibold">
+              <p className="text-[#181D27] text-2xl md:text-3xl font-semibold">
                 Welcome to CodeAnt AI
               </p>
               <div className="bg-[#FAFAFA] flex justify-between rounded-lg w-full">
@@ -154,22 +154,13 @@ const LoginScreen: FC = () => {
             </span>
           </p>
         </div>
-        <div className="max-lg:hidden flex-1 relative bg-white ">
+        <div className="max-lg:hidden flex-1 flex justify-center items-center  bg-white relative">
           {/* This is the left card */}
-          <div className="absolute bottom-0 left-0">
+          <div className="lg:fixed xl:absolute bottom-0 left-0">
             <Image src={BigLogoImage} alt="big-logo-image" />
           </div>
           <motion.div
-            className="border border-[#E9EAEB] w-[500px] text-center rounded-3xl shadow-[0px_0px_24px_0px_rgba(8,23,53,0.16)] h-44 absolute top-44 left-28 bg-white"
-            animate={{
-              translateY: [-30, 30],
-            }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "mirror",
-              duration: 3,
-              ease: "easeInOut",
-            }}
+            className="border border-[#E9EAEB] w-[450px] text-center rounded-3xl shadow-[0px_0px_24px_0px_rgba(8,23,53,0.16)] h-44 relative bg-white"
           >
             <div className="inline-flex items-center gap-2 border-b border-[#E9EAEB] w-full py-4 px-4">
               <Logo />
@@ -196,37 +187,28 @@ const LoginScreen: FC = () => {
                 </p>
               </div>
             </div>
-          </motion.div>
-          <motion.div
-            className="flex justify-between gap-6 py-4 px-6 max-w-72 shadow-[-1px_-1px_53px_-9px_rgba(0,0,0,0.51)] rounded-3xl absolute top-[340px] left-96 bg-white"
-            animate={{
-              translateY: [-30, 30],
-            }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "mirror",
-              duration: 3,
-              ease: "easeInOut",
-            }}
-          >
-            <div className="">
-              <PieChartLogo />
-              <h2 className="text-sm font-bold text-[#171717] mt-4">
-                Issues Fixed
-              </h2>
-              <h2 className="text-[#081735] text-[32px] font-bold tracking-wider">
-                500K+
-              </h2>
-            </div>
-            <div className="w-16">
-              <div className="inline-flex">
-                <ArrowUpLogo />
-                <p className="text-[#0049C6] font-bold text-sm">14%</p>
+            <motion.div
+              className="flex justify-between gap-6 py-4 px-6 max-w-72 shadow-[-1px_-1px_53px_-9px_rgba(0,0,0,0.51)] rounded-3xl absolute -right-4 bg-white"
+            >
+              <div className="">
+                <PieChartLogo />
+                <h2 className="text-sm font-bold text-[#171717] mt-4">
+                  Issues Fixed
+                </h2>
+                <h2 className="text-[#081735] text-[32px] font-bold tracking-wider">
+                  500K+
+                </h2>
               </div>
-              <p className="text-xs leading-none text-[#171717] text-end pr-[3px]">
-                This week
-              </p>
-            </div>
+              <div className="w-16">
+                <div className="inline-flex">
+                  <ArrowUpLogo />
+                  <p className="text-[#0049C6] font-bold text-sm">14%</p>
+                </div>
+                <p className="text-xs leading-none text-[#171717] text-end pr-[3px]">
+                  This week
+                </p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -235,3 +217,14 @@ const LoginScreen: FC = () => {
 };
 
 export default LoginScreen;
+
+
+// animate={{
+//   translateY: [-30, 30],
+// }}
+// transition={{
+//   repeat: Infinity,
+//   repeatType: "mirror",
+//   duration: 3,
+//   ease: "easeInOut",
+// }}

@@ -26,7 +26,7 @@ const Navbar: FC = () => {
   };
 
   return (
-    <section className=" ">
+    <section className="fixed top-0 border-b border-[#E9EAEB] bg-white w-full lg:hidden">
       <div className="flex justify-between items-center p-4">
         <h2 className="inline-flex justify-center items-center gap-2 text-2xl font-normal">
           <Logo /> <span>CodeAnt AI</span>
