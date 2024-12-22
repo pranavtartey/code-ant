@@ -6,15 +6,34 @@ import RefreshIcon from "@/assets/refresh-icon.svg";
 import PlusIcon from "@/assets/plus-icon.svg";
 import ListItem from "@/components/ListItem";
 import { repositories } from "@/constants/repositories";
+import { useSearch } from "@/hooks/useSearch";
 
 type InputValueType = {
   search: string;
+};
+
+type FilterDataProps = {
+  name: string;
+  tech: string;
+  tag: string;
+  storage: string;
+  lastUpdated: string;
 };
 
 const Dashboard: FC = () => {
   const [inputValue, setInputValue] = useState<InputValueType>({
     search: "",
   });
+
+  const [filterData, setFilterData] = useState<FilterDataProps[]>([
+    {
+      name: "",
+      tech: "",
+      tag: "",
+      storage: "",
+      lastUpdated: "",
+    },
+  ]);
 
   const changeHandler: ChangeEventHandler<HTMLInputElement> = (
     event: ChangeEvent<HTMLInputElement>
@@ -24,10 +43,12 @@ const Dashboard: FC = () => {
       ...prev,
       [name]: value,
     }));
+    const data = useSearch(repositories, inputValue.search);
+    setFilterData(data);
   };
 
   return (
-    <section className="max-lg:container">
+    <section className="w-full lg:ml-[250px]">
       <div className="my-2 flex flex-col gap-4 max-lg:mt-20">
         <div className="lg:flex justify-between items-center px-4">
           <div className="flex flex-col gap-1">
