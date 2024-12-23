@@ -12,7 +12,7 @@ import RefreshIcon from "@/assets/refresh-icon.svg";
 import PlusIcon from "@/assets/plus-icon.svg";
 import ListItem from "@/components/ListItem";
 import { repositories } from "@/constants/repositories";
-import { useSearch } from "@/hooks/useSearch";
+import { filterRepositories } from "@/hooks/useSearch";
 
 type InputValueType = {
   search: string;
@@ -27,9 +27,7 @@ type FilterDataProps = {
 };
 
 const Dashboard: FC = () => {
-  const [inputValue, setInputValue] = useState<InputValueType>({
-    search: "",
-  });
+  const [inputValue, setInputValue] = useState<string>("");
 
   const [filterData, setFilterData] = useState<FilterDataProps[]>([
     {
@@ -42,18 +40,14 @@ const Dashboard: FC = () => {
   ]);
 
   useEffect(() => {
-    const data = useSearch(repositories, inputValue.search);
-    setFilterData(data);
-  }, [inputValue.search]);
+    const filtered = filterRepositories(repositories, inputValue);
+    setFilterData(filtered);
+  }, [inputValue, repositories]);
 
   const changeHandler: ChangeEventHandler<HTMLInputElement> = (
     event: ChangeEvent<HTMLInputElement>
   ) => {
-    const { name, value } = event.target;
-    setInputValue((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setInputValue(event.target.value);
   };
 
   return (
@@ -83,7 +77,7 @@ const Dashboard: FC = () => {
             className="w-full bg-[#FAFAFA] border-none focus:outline-none focus:border focus:border-black"
             onChange={changeHandler}
             name="search"
-            value={inputValue.search}
+            value={inputValue}
           />
         </div>
       </div>
