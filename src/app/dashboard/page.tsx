@@ -14,9 +14,6 @@ import ListItem from "@/components/ListItem";
 import { repositories } from "@/constants/repositories";
 import { filterRepositories } from "@/hooks/useSearch";
 
-type InputValueType = {
-  search: string;
-};
 
 type FilterDataProps = {
   name: string;
@@ -42,7 +39,7 @@ const Dashboard: FC = () => {
   useEffect(() => {
     const filtered = filterRepositories(repositories, inputValue);
     setFilterData(filtered);
-  }, [inputValue, repositories]);
+  }, [inputValue]);
 
   const changeHandler: ChangeEventHandler<HTMLInputElement> = (
     event: ChangeEvent<HTMLInputElement>
