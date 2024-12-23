@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 type useSearchProps = {
     name: string;
     tech: string;
@@ -7,8 +5,6 @@ type useSearchProps = {
     storage: string;
     lastUpdated: string;
 }[]
-
-// type useSearchProps = typeof repositories
 
 
 const useSearch = (repositories: useSearchProps, search: string) => {

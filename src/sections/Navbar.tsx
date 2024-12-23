@@ -78,8 +78,6 @@ const Navbar: FC = () => {
           {!isMenuOpen ? <HamburgerMenu /> : <CloseIcon />}
         </div>
       </div>
-
-      {/* Small Screen Dropdown */}
       <div className={twMerge("hidden", isMenuOpen && "block lg:hidden")}>
         <div
           className="flex justify-between items-center px-4 py-2 m-4 border border-[#E9EAEB] md:w-[576px] rounded-lg md:mx-auto hover:cursor-pointer hover:bg-[#D5D7DA]"
@@ -101,8 +99,6 @@ const Navbar: FC = () => {
           <NavbarItems />
         </div>
       </div>
-
-      {/* Large Screen Sidebar */}
       <div className="hidden lg:flex flex-col mt-4 px-4 lg:h-[calc(100%-15%)]">
         <NavbarItems />
       </div>

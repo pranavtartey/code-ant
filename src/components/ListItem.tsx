@@ -2,6 +2,7 @@ import { FC } from "react";
 import DotIcon from "@/assets/ellipse-icon.svg";
 import StorageIcon from "@/assets/database-icon.svg";
 import Tag from "./Tag";
+import { twMerge } from "tailwind-merge";
 
 type ListItemProps = {
   name: string;
@@ -21,7 +22,12 @@ const ListItem: FC<ListItemProps> = ({
   className,
 }) => {
   return (
-    <div className="border-t border-[#D5D7DA] hover:bg-[#D5D7DA] p-4 w-full flex flex-col gap-4">
+    <div
+      className={twMerge(
+        "border-t border-[#D5D7DA] hover:bg-[#D5D7DA] p-4 w-full flex flex-col gap-4",
+        className
+      )}
+    >
       <div className="flex gap-4">
         <h2 className="text-[#181D27] text-lg font-medium">{name}</h2>
         <Tag tag={tag} />

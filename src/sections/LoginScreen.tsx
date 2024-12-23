@@ -34,9 +34,9 @@ const LoginScreen: FC = () => {
     <section className="lg:bg-[linear-gradient(to_left,#E9EAEB_60%,white_40%)]">
       <div className="flex flex-row-reverse relative container">
         <div className="p-4 h-screen  flex justify-center items-center flex-col  mx-auto flex-1">
-          {/*This is the card on the right side*/}
+   
           <div className="bg-white border border-[#E9EAEB] rounded-lg w-full mx-auto min-h-[582px]">
-            {/* this is the first section on that card */}
+        
             <div className="flex flex-col items-center gap-6 py-9 border-b border-2-[#FAFAFA] px-4">
               <div className="flex justify-center items-center gap-4">
                 <Logo />

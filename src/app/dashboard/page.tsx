@@ -89,7 +89,7 @@ const Dashboard: FC = () => {
       </div>
       <div className="mt-6">
         {filterData.map((repo) => (
-          <ListItem {...repo} />
+          <ListItem key={repo.name} {...repo} />
         ))}
       </div>
     </section>
