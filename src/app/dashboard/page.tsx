@@ -1,6 +1,12 @@
 "use client";
 import Button from "@/components/Button";
-import { ChangeEvent, ChangeEventHandler, FC, useState } from "react";
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  FC,
+  useEffect,
+  useState,
+} from "react";
 import SearchIcon from "@/assets/search-icon.svg";
 import RefreshIcon from "@/assets/refresh-icon.svg";
 import PlusIcon from "@/assets/plus-icon.svg";
@@ -35,6 +41,11 @@ const Dashboard: FC = () => {
     },
   ]);
 
+  useEffect(() => {
+    const data = useSearch(repositories, inputValue.search);
+    setFilterData(data);
+  }, [inputValue.search]);
+
   const changeHandler: ChangeEventHandler<HTMLInputElement> = (
     event: ChangeEvent<HTMLInputElement>
   ) => {
@@ -43,8 +54,6 @@ const Dashboard: FC = () => {
       ...prev,
       [name]: value,
     }));
-    const data = useSearch(repositories, inputValue.search);
-    setFilterData(data);
   };
 
   return (
@@ -66,12 +75,12 @@ const Dashboard: FC = () => {
             </Button>
           </div>
         </div>
-        <div className="inline-flex items-center gap-4 border border-[#D5D7DA] rounded-lg p-2 ml-4 lg:max-w-sm ">
+        <div className="inline-flex items-center gap-4 border border-[#D5D7DA] rounded-lg p-2 ml-4 lg:max-w-sm group focus-within:border-black">
           <SearchIcon />
           <input
             type="search"
             placeholder="Search Repositories"
-            className="w-full bg-[#FAFAFA]"
+            className="w-full bg-[#FAFAFA] border-none focus:outline-none focus:border focus:border-black"
             onChange={changeHandler}
             name="search"
             value={inputValue.search}
@@ -79,7 +88,7 @@ const Dashboard: FC = () => {
         </div>
       </div>
       <div className="mt-6">
-        {repositories.map((repo) => (
+        {filterData.map((repo) => (
           <ListItem {...repo} />
         ))}
       </div>

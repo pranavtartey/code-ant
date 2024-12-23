@@ -29,7 +29,7 @@ const Navbar: FC = () => {
 
   const NavbarItems = () => (
     <div className="flex flex-col justify-between lg:items-start h-full">
-      <div className="flex flex-col">
+      <div className="flex flex-col lg:w-full">
         <div
           className="flex justify-between items-center px-4 py-2 mt-4 border border-[#E9EAEB] rounded-lg mx-auto max-lg:hidden hover:cursor-pointer hover:bg-[#D5D7DA] w-full"
           onClick={dropdownClickHandler}
@@ -57,7 +57,7 @@ const Navbar: FC = () => {
           <SettingIcon /> <span>Settings</span>
         </p>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col lg:w-full">
         <p className="inline-flex gap-4 items-center text-[#414651] lg:justify-start font-semibold hover:bg-[#E9EAEB] p-2 md:text-xl md:justify-center">
           <SupportIcon /> <span>Support</span>
         </p>
